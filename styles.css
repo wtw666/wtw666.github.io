@@ -207,19 +207,28 @@ h3 {
 }
 
 .research-fields {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 570px;
   margin: 0 0 18px;
   padding: 0;
-  color: var(--ink-soft);
-  font-size: 0.88rem;
+  gap: 8px;
   list-style: none;
 }
 
-.research-fields li:not(:last-child)::after {
-  margin-inline: 9px;
-  color: var(--rule-dark);
-  content: "·";
+.research-fields li {
+  display: flex;
+  min-height: 52px;
+  padding: 9px 11px;
+  align-items: center;
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  background: var(--paper-soft);
+  font-family: Charter, "Iowan Old Style", Georgia, serif;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.28;
 }
 
 .hero-links {
@@ -346,7 +355,7 @@ h3 {
 
 .profile-section {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(250px, 0.75fr);
+  grid-template-columns: minmax(0, 1.6fr) minmax(250px, 0.7fr);
   gap: clamp(38px, 7vw, 74px);
 }
 
@@ -517,6 +526,15 @@ h3 {
   font-style: italic;
 }
 
+.publication-entry .venue strong {
+  color: var(--ink);
+  font-weight: 750;
+}
+
+.publication-entry .paper-note {
+  color: var(--muted);
+}
+
 .publication-entry strong {
   font-weight: 700;
 }
@@ -609,6 +627,10 @@ h3 {
 
   .position {
     max-width: 34ch;
+  }
+
+  .research-fields {
+    grid-template-columns: 1fr;
   }
 
   .section {
