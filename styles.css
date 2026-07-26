@@ -174,7 +174,6 @@ h3 {
   max-width: 690px;
 }
 
-.position,
 .section-label,
 .publication-status,
 .research-updated {
@@ -186,10 +185,15 @@ h3 {
   text-transform: uppercase;
 }
 
-.affiliation {
-  margin-bottom: 25px;
-  color: var(--muted);
-  font-size: 0.92rem;
+.profile-intro {
+  max-width: 67ch;
+  margin-bottom: 24px;
+  color: var(--ink-soft);
+  font-size: 0.94rem;
+}
+
+.profile-intro a {
+  font-weight: 650;
 }
 
 .hero h2 {
@@ -250,6 +254,15 @@ h3 {
   border-radius: 2px;
   object-fit: cover;
   object-position: 50% 48%;
+}
+
+.academic-overview {
+  padding-block: 26px 38px;
+  border-top: 1px solid var(--rule);
+}
+
+.academic-overview .section-label {
+  margin-bottom: 14px;
 }
 
 .section {
@@ -353,32 +366,31 @@ h3 {
   content: "]";
 }
 
-.profile-section {
-  display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(250px, 0.7fr);
-  gap: clamp(38px, 7vw, 74px);
+.background-copy {
+  max-width: 78ch;
 }
 
-.profile-section > div > p:not(.section-label) {
-  max-width: var(--reading);
+.background-copy p {
   margin-bottom: 12px;
   color: var(--ink-soft);
 }
 
 .academic-path {
-  margin: 4px 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  border-top: 1px solid var(--rule-dark);
 }
 
 .academic-path > div {
-  display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  padding-block: 11px;
+  display: block;
+  padding: 13px 16px 12px 0;
   border-bottom: 1px solid var(--rule);
-  gap: 12px;
 }
 
-.academic-path > div:first-child {
-  border-top: 1px solid var(--rule);
+.academic-path > div + div {
+  padding-left: 16px;
+  border-left: 1px solid var(--rule);
 }
 
 .academic-path dt {
@@ -531,8 +543,27 @@ h3 {
   font-weight: 750;
 }
 
-.publication-entry .paper-note {
+.author-order-note {
+  margin: 14px 0 0;
   color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.author-order-note span,
+.author-order {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.author-order-note span {
+  margin-right: 5px;
+}
+
+.author-order {
+  margin-left: 4px;
 }
 
 .publication-entry strong {
@@ -586,9 +617,17 @@ h3 {
     border-left: 0;
   }
 
-  .profile-section {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .academic-path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .academic-path > div:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .academic-path > div:nth-child(n + 3) {
+    border-top: 0;
   }
 }
 
@@ -625,12 +664,18 @@ h3 {
     width: 112px;
   }
 
-  .position {
-    max-width: 34ch;
-  }
-
   .research-fields {
     grid-template-columns: 1fr;
+  }
+
+  .academic-path {
+    grid-template-columns: 1fr;
+  }
+
+  .academic-path > div,
+  .academic-path > div + div {
+    padding-left: 0;
+    border-left: 0;
   }
 
   .section {
