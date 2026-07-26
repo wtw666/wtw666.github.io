@@ -8,6 +8,8 @@
   --rule-dark: #b9bec3;
   --accent: #6f303c;
   --link: #244f73;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-serif: Charter, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --shell: min(960px, calc(100% - 40px));
   --reading: 68ch;
 }
@@ -24,11 +26,18 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 15.5px;
-  line-height: 1.64;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.62;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
 a {
@@ -64,10 +73,14 @@ h1,
 h2,
 h3 {
   color: var(--ink);
-  font-family: Charter, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-family: var(--font-serif);
   font-weight: 600;
   line-height: 1.22;
-  letter-spacing: -0.012em;
+}
+
+h1,
+h2 {
+  letter-spacing: -0.01em;
 }
 
 h1 {
@@ -82,7 +95,8 @@ h2 {
 
 h3 {
   margin-bottom: 5px;
-  font-size: 1.08rem;
+  font-size: 1.05rem;
+  letter-spacing: 0;
 }
 
 .shell {
@@ -120,7 +134,7 @@ h3 {
 
 .site-name {
   color: var(--ink);
-  font-family: Charter, "Iowan Old Style", Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 1.15rem;
   font-weight: 600;
   text-decoration: none;
@@ -156,10 +170,13 @@ h3 {
 }
 
 .file-type {
+  display: inline-block;
   margin-left: 3px;
   color: var(--muted);
   font-size: 0.66rem;
+  line-height: 1;
   letter-spacing: 0.05em;
+  vertical-align: 0.12em;
 }
 
 .hero {
@@ -175,14 +192,25 @@ h3 {
 }
 
 .section-label,
-.publication-status,
 .research-updated {
   margin-bottom: 6px;
   color: var(--accent);
+  font-family: var(--font-sans);
   font-size: 0.74rem;
   font-weight: 700;
+  line-height: 1.35;
   letter-spacing: 0.075em;
   text-transform: uppercase;
+}
+
+.publication-status {
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.015em;
 }
 
 .profile-intro {
@@ -193,14 +221,14 @@ h3 {
 }
 
 .profile-intro a {
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .hero h2 {
   max-width: 26ch;
   margin-bottom: 13px;
   font-size: clamp(1.35rem, 3vw, 1.65rem);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .intro {
@@ -229,10 +257,10 @@ h3 {
   border: 1px solid var(--rule);
   border-left: 3px solid var(--accent);
   background: var(--paper-soft);
-  font-family: Charter, "Iowan Old Style", Georgia, serif;
+  font-family: var(--font-sans);
   font-size: 0.86rem;
   font-weight: 600;
-  line-height: 1.28;
+  line-height: 1.3;
 }
 
 .hero-links {
@@ -330,15 +358,8 @@ h3 {
   gap: 24px;
 }
 
-.publication-status {
-  margin: 2px 0 0;
-  color: var(--muted);
-  font-size: 0.68rem;
-  line-height: 1.45;
-}
-
 .selected-publications h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .selected-publications p {
@@ -346,6 +367,13 @@ h3 {
   margin-bottom: 5px;
   color: var(--ink-soft);
   font-size: 0.9rem;
+}
+
+.selected-publications .publication-status {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
 }
 
 .resource-links {
@@ -410,7 +438,7 @@ h3 {
 }
 
 .academic-path strong {
-  font-family: Charter, "Iowan Old Style", Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 0.98rem;
   font-weight: 600;
 }
@@ -514,7 +542,7 @@ h3 {
   width: 22px;
   color: var(--muted);
   content: counter(publications) ".";
-  font-family: Charter, "Iowan Old Style", Georgia, serif;
+  font-family: var(--font-serif);
   font-size: 0.88rem;
 }
 
@@ -527,7 +555,7 @@ h3 {
   max-width: 82ch;
   margin-bottom: 4px;
   color: var(--ink-soft);
-  font-size: 0.89rem;
+  font-size: 0.9rem;
 }
 
 .publication-entry .authors {
@@ -535,12 +563,12 @@ h3 {
 }
 
 .publication-entry .venue {
-  font-style: italic;
+  font-style: normal;
 }
 
 .publication-entry .venue strong {
   color: var(--ink);
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .author-order-note {
@@ -552,8 +580,10 @@ h3 {
 .author-order-note span,
 .author-order {
   color: var(--accent);
+  font-family: var(--font-serif);
   font-size: 0.72rem;
-  font-weight: 750;
+  font-weight: 700;
+  line-height: 1;
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
@@ -563,7 +593,9 @@ h3 {
 }
 
 .author-order {
+  display: inline-block;
   margin-left: 4px;
+  vertical-align: 0.14em;
 }
 
 .publication-entry strong {
@@ -632,10 +664,6 @@ h3 {
 }
 
 @media (max-width: 540px) {
-  body {
-    font-size: 15px;
-  }
-
   .header-inner,
   .footer-inner {
     align-items: flex-start;
