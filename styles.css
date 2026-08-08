@@ -1,12 +1,12 @@
 :root {
-  --canvas: #f2efe8;
-  --paper: #fffdf9;
-  --rail: #e7e9e2;
-  --soft: #f5f4ef;
+  --canvas: #eef1f4;
+  --paper: #ffffff;
+  --rail: #edf1f5;
+  --soft: #f5f7f9;
   --ink: #222825;
   --muted: #626a65;
   --faint: #7b827e;
-  --rule: #d5d9d2;
+  --rule: #d6dde3;
   --pine: #365f56;
   --pine-dark: #294940;
   --burgundy: #7a3f4b;
@@ -203,13 +203,13 @@ h3 {
 }
 
 .rail-nav a:hover {
-  background: rgba(255, 253, 249, 0.55);
+  background: rgba(255, 255, 255, 0.58);
   color: var(--pine-dark);
 }
 
 .rail-nav a[aria-current="page"] {
   border-left-color: var(--burgundy);
-  background: rgba(255, 253, 249, 0.76);
+  background: rgba(255, 255, 255, 0.82);
   color: var(--ink);
 }
 
@@ -809,7 +809,7 @@ h3 {
     min-height: 58px;
     padding: 9px 28px;
     border-bottom: 1px solid var(--rule);
-    background: rgba(255, 253, 249, 0.96);
+    background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(10px);
   }
 
