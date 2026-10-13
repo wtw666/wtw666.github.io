@@ -284,8 +284,16 @@ h3 {
 
 .profile-intro {
   max-width: 68ch;
-  margin-bottom: 26px;
+  margin-bottom: 14px;
   color: #454d49;
+}
+
+.job-market-note {
+  margin: 0 0 26px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--burgundy);
+  background: var(--soft);
+  color: var(--burgundy);
 }
 
 .hero h2 {
